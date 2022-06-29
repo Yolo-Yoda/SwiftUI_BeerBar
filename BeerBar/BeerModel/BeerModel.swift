@@ -11,7 +11,7 @@ struct Beer: Identifiable, Codable, Hashable {
     var price: Int? = 15
 }
 
-struct BeerBasket: Identifiable, Hashable {
+struct CartBeer: Identifiable, Hashable {
     
     var id: Int
     var beer: Beer

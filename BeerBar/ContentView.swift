@@ -9,19 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var beerViewModel = BeerViewModel ()
-    
     var body: some View {
         
         TabView {
-            MenuView()
+            NavigationView {
+                MenuView()
+            }
                 .tabItem{
                     VStack {
                         Image(systemName: "menucard")
                         Text("Menu")
                     }
                 }
-            BasketView(basketViewModel: BasketViewModel.shared)
+            BasketView()
                 .tabItem{
                     VStack {
                         Image(systemName: "cart")
@@ -29,6 +29,11 @@ struct ContentView: View {
                     }
                 }
         }
+        .onAppear() {
+            UITabBar.appearance().barTintColor = .white
+        }
+        .accentColor(Color.indigo)
+        
     }
 }
 

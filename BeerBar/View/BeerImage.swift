@@ -14,7 +14,7 @@ struct BeerImage: View {
                     .resizable()
                     .renderingMode(.original)
                     .aspectRatio(contentMode: .fit)
-                    .beerImageStyle(size: .medium)
+                    .beerImageStyle(size: beerSize)
             } else {
                 Rectangle()
                     .foregroundColor(.gray)
