@@ -6,17 +6,21 @@ final class BasketViewModel: ObservableObject {
     
     private init() { }
    
-    @Published var beerBaskets = [BeerBasket]()
+    @Published var cartBeers = [CartBeer]()
     
     var cost: Int {
         var sum = 0
-        for beer in beerBaskets {
+        for beer in cartBeers {
             sum += beer.cost
         }
         return sum
     }
     
-    func addBeerToBasket(_ beerBasket: BeerBasket) {
-        self.beerBaskets.append(beerBasket)
+    func addBeerToBasket(_ cartBeer: CartBeer) {
+        self.cartBeers.append(cartBeer)
+    }
+    
+    func cancelOrder() {
+        cartBeers = []
     }
 }

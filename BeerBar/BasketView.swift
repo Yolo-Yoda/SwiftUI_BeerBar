@@ -2,12 +2,14 @@ import SwiftUI
 
 struct BasketView: View {
     
-    @ObservedObject var basketViewModel: BasketViewModel
+    @ObservedObject var basketViewModel: BasketViewModel = BasketViewModel.shared
     
     var body: some View {
         VStack {
-            List(basketViewModel.beerBaskets) { beer in
-                BasketCell(basket: beer)
+            List {
+                ForEach(basketViewModel.cartBeers, id: \.self) { cartBeer in
+                    BasketCell(cartBeer: cartBeer)
+                }
             }
             .listStyle(.plain)
             .navigationTitle("cart")
@@ -20,7 +22,7 @@ struct BasketView: View {
             }.padding()
             HStack (spacing: 30){
                 Button {
-                    BasketViewModel.shared.beerBaskets = []
+                    BasketViewModel.shared.cancelOrder()
                 } label: {
                     Text("Cancel")
                         .font(.body)

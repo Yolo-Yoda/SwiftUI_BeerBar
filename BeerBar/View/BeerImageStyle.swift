@@ -3,15 +3,18 @@ import SwiftUI
 struct BeerImageStyle: ViewModifier {
     enum Size {
         case medium
+        case large
         
         func width() -> CGFloat {
             switch self {
-            case .medium: return 75
+            case .medium: return 40
+            case .large: return 100
             }
         }
         func height() -> CGFloat {
             switch self {
-            case .medium: return 125
+            case .medium: return 80
+            case .large: return 200
             }
         }
     }
